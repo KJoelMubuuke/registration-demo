@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html">
+<f:view>
+    <h:head></h:head>
+    <h:body>
+<h1> STUDENTS  REGISTRATION  FORM </h1>
+
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value=" Student Name"/>
+                <h:inputText  id="name" value="#{studentBean.name}" required="true"
+                requiredMessage="Name is required"/>
+                <h:message for="name" style="color:red"/>
+
+                <h:outputLabel value="Email:"/>
+                <h:inputText id ="email" value="#{studentBean.email}"
+                             required="true" requiredMessage="Email is required"/>
+                <h:message for="email" style="color: red"/>
+
+
+
+
+                <h:outputLabel value="Course:"/>
+                <h:inputText id="course" value="#{studentBean.course}"
+                required="true" requiredMessage="Course is needed"/>
+                <h:message for="course" style="color: red"/>
+
+                <h:outputLabel value="Age:"/>
+               <h:inputText id="age"
+                            value="#{studentBean.age}" required="true"
+                            converterMessage="Age must be a whole Number">
+                   <f:validateLongRange minimum="1" maximum="120"/>
+                   <h:message for="age" style="color: red"/>
+
+
+               </h:inputText>
+                <h:outputLabel value="Gender"/>
+
+                <h:selectOneRadio  id = "gender" value="#{studentBean.gender}" required="true" requiredMessage="Choose a gender">
+                    <f:selectItem itemLabel="Male" itemValue="Male"/>
+                    <f:selectItem itemLabel="Female" itemValue="Female"/>
+
+                </h:selectOneRadio>
+                <h:message for="gender" style="color: red"/>
+
+                <h:outputLabel value="Register"/>
+                <h:commandButton value="Register" action="#{studentBean.save()}"/>
+
+
+            </h:panelGrid>
+
+        </h:form>
+
+    </h:body>
+</f:view>
+</html>
