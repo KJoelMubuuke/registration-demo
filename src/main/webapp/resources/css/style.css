@@ -58,7 +58,3 @@ form {
     font-size: 0.85em;
     margin-left: 0.5em;
 }
-
-input.error-input {
-    border: 1px solid #c0392b;
-}
